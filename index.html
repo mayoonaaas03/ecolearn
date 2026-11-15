@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EconView - Media Visual Ekonomi untuk Guru</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="locked checking">
+    <!-- ===== LAYAR LOGIN: tampil sebelum dashboard ===== -->
+    <div class="login" id="login">
+      <div class="login-card">
+        <div class="brand login-brand">
+          <span class="logo">E</span>
+          <div><b>EconView</b><small>Media Visual Ekonomi untuk Guru</small></div>
+        </div>
+        <h1 id="loginTitle">Selamat Datang</h1>
+        <p class="muted">Masuk dengan akun bersama dan kode akses 6 digit.</p>
+        <form id="loginForm">
+          <label>Email<input type="email" id="lgEmail" autocomplete="username" required /></label>
+          <label>Password
+            <span class="pw">
+              <input type="password" id="lgPass" autocomplete="current-password" required />
+              <button type="button" class="pw-toggle" id="lgToggle" aria-label="Tampilkan password">Tampilkan</button>
+            </span>
+          </label>
+          <label>Kode akses (6 digit)<input id="lgCode" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" autocomplete="off" required /></label>
+          <p class="err" id="lgErr" role="alert" hidden></p>
+          <button class="btn primary login-btn" id="lgBtn"><span class="spin" id="lgSpin" hidden></span><span id="lgTxt">Masuk</span></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <!-- logo dan navbar -->
+        <div class="brand">
+          <span class="logo">E</span>
+          <div>
+            <b>EconView</b><small>Media Visual Ekonomi untuk Guru</small>
+          </div>
+        </div>
+        <nav>
+          <button class="nav" data-sec="home" data-go="home">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path d="M3 11l9-8 9 8v9a1 1 0 01-1 1H4a1 1 0 01-1-1z" /></svg
+            >Beranda
+          </button>
+          <button class="nav" data-sec="materi" data-go="materi">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path
+                d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"
+              /></svg
+            >Materi Konsep Ekonomi
+          </button>
+          <button class="nav" data-sec="teach" data-go="teach">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path d="M3 4h18v12H3zM8 20h8M12 16v4" /></svg
+            >Teaching Mode
+          </button>
+          <button class="nav" data-sec="bank" data-go="bank">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path
+                d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"
+              /></svg
+            >Bank Soal
+          </button>
+        </nav>
+        <p class="side-note">Konten tersimpan online dan dibagikan ke semua pengguna</p>
+      </aside>
+
+      <div class="main">
+        <header class="topbar">
+          <button class="burger" id="burger">Menu</button>
+          <button class="btn small" id="back" hidden>Kembali</button>
+          <label class="search"
+            ><span class="sr">Cari</span
+            ><input
+              id="search"
+              type="search"
+              placeholder="Cari materi atau soal, lalu tekan Enter"
+          /></label>
+          <div class="user">
+            <div class="avatar">G</div>
+            <div><b>Guru Ekonomi</b><small>SMA Kelas 10</small></div>
+          </div>
+          <button class="btn small" id="logout">Keluar</button>
+        </header>
+
+        <main>
+          <section class="page" id="p-home">
+            <div class="hero card">
+              <div class="hero-text">
+                <h1>Pahami Konsepnya, Lihat Kurvanya!</h1>
+                <p>
+                  EconView membantu guru ekonomi kelas 10 menyiapkan perangkat
+                  ajar, menjelaskan kurva permintaan dan penawaran, serta
+                  mengelola materi dan soal sendiri.
+                </p>
+                <div class="row">
+                  <button class="btn primary" data-go="materi">
+                    Materi Konsep Ekonomi
+                  </button>
+                  <button class="btn" data-go="teach">Teaching Mode</button>
+                  <button class="btn ghost" data-go="bank">Bank Soal</button>
+                </div>
+              </div>
+              <svg
+                class="hero-art"
+                viewBox="0 0 320 220"
+                role="img"
+                aria-label="Guru menjelaskan grafik ekonomi"
+              >
+                <rect
+                  x="10"
+                  y="10"
+                  width="210"
+                  height="150"
+                  rx="14"
+                  fill="#fff"
+                  stroke="#c9d6f5"
+                  stroke-width="3"
+                />
+                <path
+                  d="M40 30v110h160"
+                  fill="none"
+                  stroke="#1b2a5c"
+                  stroke-width="3"
+                />
+                <path
+                  d="M55 45L185 125"
+                  stroke="#3b6fe0"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M55 125L185 45"
+                  stroke="#f08a24"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+                <circle cx="120" cy="85" r="8" fill="#1b2a5c" />
+                <circle cx="262" cy="70" r="24" fill="#ece8ff" />
+                <circle cx="262" cy="64" r="11" fill="#f2c9a5" />
+                <path
+                  d="M236 170c0-30 12-46 26-46s26 16 26 46z"
+                  fill="#1b2a5c"
+                />
+                <path
+                  d="M246 140L222 108"
+                  stroke="#1b2a5c"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="grid three">
+              <div class="card">
+                <h3>Dua mode simulasi</h3>
+                <p class="muted">
+                  Atur kurva manual tanpa angka, atau masukkan persamaan untuk
+                  soal hitungan.
+                </p>
+              </div>
+              <div class="card">
+                <h3>Konten bersama</h3>
+                <p class="muted">
+                  Tambah, ubah, dan hapus materi, soal, modul, serta presentasi
+                  sendiri.
+                </p>
+              </div>
+              <div class="card">
+                <h3>Siap di proyektor</h3>
+                <p class="muted">
+                  PPT interaktif layar penuh dengan grafik yang muncul bertahap.
+                </p>
+              </div>
+            </div>
+            <h2 class="sec-title">Ringkasan materi kelas 10</h2>
+            <div class="grid" id="homeList"></div>
+          </section>
+
+          <section class="page" id="p-materi">
+            <h2 class="sec-title">Materi Konsep Ekonomi</h2>
+            <div class="grid three">
+              <button class="card opt" data-go="modul">
+                <h3>Modul / RPP</h3>
+                <p class="muted">
+                  Modul ajar, RPP, tujuan dan alur pembelajaran. Unggah dokumen
+                  sendiri.
+                </p>
+              </button>
+              <button class="card opt" data-go="isi">
+                <h3>Isi Materi</h3> 
+                <p class="muted">
+                  Materi per bab dengan poin penting, rumus, dan contoh.
+                </p>
+              </button>
+              <button class="card opt" data-go="sim">
+                <h3>Simulasi Kurva &amp; Perhitungan</h3>
+                <p class="muted">
+                  Kurva manual atau berbasis persamaan, lengkap dengan langkah
+                  hitung.
+                </p>
+              </button>
+            </div>
+          </section>
+
+          <section class="page" id="p-modul">
+            <div class="bar">
+              <h2 class="sec-title">Modul / RPP</h2>
+              <button class="btn primary" data-act="add-modul">
+                Upload Dokumen
+              </button>
+            </div>
+            <p class="lead">
+              Format PDF dan DOCX, maksimal 10 MB per berkas. PDF dapat dibuka
+              langsung di halaman ini.
+            </p>
+            <div class="stack" id="modulList"></div>
+          </section>
+
+          <section class="page" id="p-isi">
+            <div class="bar">
+              <h2 class="sec-title">Isi Materi</h2>
+              <div class="row">
+                <button class="btn" data-act="reset-m">
+                  Pulihkan materi bawaan</button
+                ><button class="btn primary" data-act="add-m">
+                  Tambah Materi
+                </button>
+              </div>
+            </div>
+            <div id="isiList"></div>
+          </section>
+
+          <section class="page" id="p-detail"><div id="detail"></div></section>
+
+          <section class="page" id="p-sim">
+            <div class="bar">
+              <h2 class="sec-title">Simulasi Kurva dan Perhitungan</h2>
+              <button class="btn" data-act="help">Panduan singkat</button>
+            </div>
+            <div class="tabs" role="tablist">
+              <button class="tab on" data-mode="manual">
+                Mode 1: Kurva Manual
+              </button>
+              <button class="tab" data-mode="eq">
+                Mode 2: Persamaan dan Perhitungan
+              </button>
+            </div>
+            <!-- Susunan atas ke bawah: input -> grafik -> angka hasil -> opsi tampilan -> langkah hitung -> penjelasan -->
+<div class="sim-stack">
+<div class="card" id="mManual">
+                  <h3>Atur kurva langsung</h3>
+                  <label
+                    >Geser kurva permintaan <output id="oA">120</output
+                    ><input
+                      type="range"
+                      id="rA"
+                      min="60"
+                      max="180"
+                      step="1"
+                      value="120"
+                  /></label>
+                  <label
+                    >Kemiringan permintaan <output id="oB">2</output
+                    ><input
+                      type="range"
+                      id="rB"
+                      min="0.5"
+                      max="5"
+                      step="0.1"
+                      value="2"
+                  /></label>
+                  <label
+                    >Geser kurva penawaran <output id="oC">20</output
+                    ><input
+                      type="range"
+                      id="rC"
+                      min="-40"
+                      max="80"
+                      step="1"
+                      value="20"
+                  /></label>
+                  <label
+                    >Kemiringan penawaran <output id="oD">2</output
+                    ><input
+                      type="range"
+                      id="rD"
+                      min="0.5"
+                      max="5"
+                      step="0.1"
+                      value="2"
+                  /></label>
+                </div>
+                <div class="card" id="mEq" hidden>
+                  <h3>Parameter soal</h3>
+                  <label
+                    >Fungsi permintaan (Qd)<input
+                      id="inQd"
+                      value="120 - 2P"
+                      autocomplete="off"
+                  /></label>
+                  <label
+                    >Fungsi penawaran (Qs)<input
+                      id="inQs"
+                      value="20 + 2P"
+                      autocomplete="off"
+                  /></label>
+                  <label
+                    >Harga uji (P)<input
+                      id="inP"
+                      type="number"
+                      min="0"
+                      step="any"
+                      value="30"
+                  /></label>
+                  <p class="err" id="err" role="alert" hidden></p>
+                  <button class="btn primary" id="btnShow">
+                    Tampilkan grafik
+                  </button>
+                </div>
+                <div class="card chart-card">
+<div class="chart-box"><canvas id="chart"></canvas></div>
+</div>
+<div class="chips" id="chips"></div>
+<div class="card">
+                  <h3>Tampilan grafik</h3>
+                  <div class="checks">
+                    <label
+                      ><input type="checkbox" id="cD" checked /> Kurva
+                      permintaan</label
+                    ><label
+                      ><input type="checkbox" id="cS" checked /> Kurva
+                      penawaran</label
+                    ><label
+                      ><input type="checkbox" id="cH" checked /> Garis
+                      bantu</label
+                    ><label
+                      ><input type="checkbox" id="cE" checked /> Titik
+                      keseimbangan</label
+                    >
+                  </div>
+                  <label
+                    >Label sumbu horizontal<input
+                      id="lbX"
+                      value="Jumlah barang (Q)"
+                  /></label>
+                  <label
+                    >Label sumbu vertikal<input id="lbY" value="Harga (P)"
+                  /></label>
+                  <label
+                    >Keterangan pada grafik<input
+                      id="note"
+                      placeholder="Contoh: Pasar beras"
+                  /></label>
+                  <label
+                    >Skenario What If
+                    <select id="inSc">
+                      <option value="none">Tanpa skenario</option>
+                      <option value="price">Perubahan harga barang</option>
+                      <option value="income">
+                        Pendapatan konsumen meningkat
+                      </option>
+                      <option value="cost">Biaya produksi meningkat</option>
+                      <option value="consumers">
+                        Jumlah konsumen bertambah
+                      </option>
+                      <option value="taste">Selera konsumen berubah</option>
+                    </select>
+                  </label>
+                  <button class="btn" id="btnReset">Reset simulasi</button>
+                </div>
+                <div class="card" id="stepsCard" hidden>
+                  <h3>Perhitungan bertahap</h3>
+                  <ol class="steps" id="steps"></ol>
+                </div>
+<div class="card" id="explain"></div>
+</div>
+</section>
+
+          <section class="page" id="p-teach">
+            <h2 class="sec-title">Teaching Mode</h2>
+            <div class="grid two">
+              <button class="card opt" data-go="ppt">
+                <h3>PPT Interaktif</h3>
+                <p class="muted">
+                  Presentasi bertahap dengan grafik, layar penuh, dan tombol
+                  next previous. Unggah presentasi sendiri.
+                </p>
+              </button>
+              <button class="card opt" data-go="siswa">
+                <h3>Simulasi Kurva untuk Siswa</h3>
+                <p class="muted">
+                  Siswa membuat kurva sendiri langkah demi langkah: mengisi
+                  tabel, memplot titik, lalu mencari keseimbangan.
+                </p>
+              </button>
+            </div>
+          </section>
+
+          <section class="page" id="p-ppt">
+            <h2 class="sec-title">PPT Interaktif</h2>
+            <div class="card">
+              <h3>Permintaan dan Penawaran</h3>
+              <p class="muted">
+                Presentasi bawaan EconView dengan 8 tahap dan grafik yang
+                berubah mengikuti penjelasan.
+              </p>
+              <button class="btn primary" data-act="start-ppt">
+                Mulai presentasi
+              </button>
+            </div>
+            <div class="bar" style="margin-top: 22px">
+              <h2 class="sec-title">Presentasi saya</h2>
+              <button class="btn primary" data-act="add-ppt">
+                Upload Presentasi
+              </button>
+            </div>
+            <p class="lead">
+              PDF dapat dibuka langsung. File PPT atau PPTX dapat diunduh
+              kembali, tetapi belum bisa ditampilkan di browser. Ekspor ke PDF
+              dari PowerPoint untuk menampilkannya di sini.
+            </p>
+            <div class="stack" id="pptList"></div>
+          </section>
+
+          <section class="page" id="p-siswa">
+<div class="bar">
+<h2 class="sec-title">Simulasi Kurva untuk Siswa</h2>
+<button class="btn" id="stReset">Reset</button>
+</div>
+<p class="lead">Geser slider untuk membentuk kurva, lalu tebak titik keseimbangannya. Jawaban bisa dibuka dengan tombol di bawah grafik.</p>
+<div class="sim-stack">
+<div class="card">
+<h3>Atur kurva langsung</h3>
+<label>Geser kurva permintaan <output id="soA">120</output><input type="range" id="sA" min="60" max="180" step="1" value="120" /></label>
+<label>Kemiringan permintaan <output id="soB">2</output><input type="range" id="sB" min="0.5" max="5" step="0.1" value="2" /></label>
+<label>Geser kurva penawaran <output id="soC">20</output><input type="range" id="sC" min="-40" max="80" step="1" value="20" /></label>
+<label>Kemiringan penawaran <output id="soD">2</output><input type="range" id="sD" min="0.5" max="5" step="0.1" value="2" /></label>
+<p class="err" id="stErr" role="alert" hidden></p>
+</div>
+<div class="card chart-card">
+<div class="chart-box"><canvas id="stChart"></canvas></div>
+</div>
+<div class="chips" id="stChips"></div>
+<div class="card">
+<h3>Tebak titik keseimbangan</h3>
+<div class="checks">
+<label>Harga keseimbangan (P)<input id="gP" inputmode="decimal" autocomplete="off" /></label>
+<label>Jumlah keseimbangan (Q)<input id="gQ" inputmode="decimal" autocomplete="off" /></label>
+</div>
+<div class="row">
+<button class="btn primary" id="stCheck">Periksa jawaban</button>
+<button class="btn" id="stReveal">Tampilkan jawaban</button>
+</div>
+<p id="stFeed" class="muted" aria-live="polite"></p>
+<div class="checks">
+<label><input type="checkbox" id="scD" checked /> Kurva permintaan</label>
+<label><input type="checkbox" id="scS" checked /> Kurva penawaran</label>
+</div>
+</div>
+</div>
+</section>
+
+          <section class="page" id="p-bank">
+            <h2 class="sec-title">Bank Soal</h2>
+            <div class="grid two">
+              <button class="card opt" data-go="soal">
+                <h3>Kumpulan Soal Guru</h3>
+                <p class="muted">
+                  Soal pilihan ganda, esai, dan perhitungan dengan kunci dan
+                  filter materi.
+                </p>
+              </button>
+              <button class="card opt" data-go="quiz">
+                <h3>Quiz / Evaluasi</h3>
+                <p class="muted">
+                  Tautan ke Quizizz, Kahoot!, Google Forms, dan tautan kuis
+                  milikmu.
+                </p>
+              </button>
+            </div>
+          </section>
+
+          <section class="page" id="p-soal">
+            <div class="bar">
+              <h2 class="sec-title">Kumpulan Soal Guru</h2>
+              <div class="row">
+                <button class="btn" data-act="reset-s">
+                  Pulihkan soal bawaan</button
+                ><button class="btn" data-act="ai-soal">
+                  Buat Soal dengan AI</button
+                ><button class="btn primary" data-act="add-s">
+                  Tambah Soal
+                </button>
+              </div>
+            </div>
+            <div class="filters">
+              <label>Materi<select id="fBab"></select></label>
+              <label
+                >Jenis soal<select id="fJenis">
+                  <option value="">Semua jenis</option>
+                  <option value="pg">Pilihan ganda</option>
+                  <option value="esai">Esai</option>
+                  <option value="hitung">Perhitungan</option>
+                </select></label
+              >
+              <label
+                >Cari kata<input id="fQ" placeholder="Kata dalam soal"
+              /></label>
+            </div>
+            <div class="stack" id="soalList"></div>
+          </section>
+
+          <section class="page" id="p-quiz">
+            <div class="bar">
+              <h2 class="sec-title">Quiz / Evaluasi</h2>
+              <button class="btn primary" data-act="add-link">
+                Tambah Tautan Kuis
+              </button>
+            </div>
+            <div class="grid three" id="quizList"></div>
+          </section>
+
+          <section class="page" id="p-hasil">
+            <h2 class="sec-title">Hasil pencarian</h2>
+            <div class="stack" id="hasil"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="teach" id="slides" hidden>
+      <div class="teach-top">
+        <div>
+          <span class="pill" id="sNo"></span>
+          <h2 id="sTitle"></h2>
+        </div>
+        <button class="btn light" id="sExit">Keluar (Esc)</button>
+      </div>
+      <div class="teach-text" id="sText"></div>
+      <div class="teach-stage" id="sStage">
+        <div class="chart-box big"><canvas id="sChart"></canvas></div>
+      </div>
+      <div class="teach-bar">
+        <button class="btn light" id="sPrev">Sebelumnya</button
+        ><button class="btn light" id="sFull">Layar penuh</button
+        ><button class="btn light" id="sDl">Unduh .pptx</button
+        ><button class="btn primary" id="sNext">Berikutnya</button>
+      </div>
+    </div>
+
+    <div class="viewer" id="viewer" hidden>
+      <div class="bar">
+        <b id="vTitle"></b><button class="btn light" id="vClose">Tutup</button>
+      </div>
+      <iframe id="vFrame" title="Dokumen"></iframe>
+    </div>
+
+    <dialog id="dlg"><div id="dlgBody"></div></dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

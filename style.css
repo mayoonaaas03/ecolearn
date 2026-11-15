@@ -1,0 +1,1097 @@
+/* ================================================
+   VARIABEL WARNA & RESET (ubah warna utama di sini)
+   ================================================ */
+
+:root {
+  --navy: #1b2a5c;
+  --blue: #3b6fe0;
+  --soft: #eef3ff;
+  --lav: #ece8ff;
+  --ink: #1a2240;
+  --muted: #66709a;
+  --line: #dfe6f5;
+  --orange: #f08a24;
+  --bad: #c2410c;
+  --ok: #1f8a5b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color: var(--ink);
+  background: var(--soft);
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0;
+  color: var(--navy);
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 6px 0 0;
+  font-size: .92rem;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  min-height: 100vh;
+}
+
+/* ================================================
+   SIDEBAR / MENU KIRI
+   ================================================ */
+
+.sidebar {
+  background: var(--navy);
+  color: #dbe4ff;
+  padding: 22px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 6px;
+}
+
+.brand b {
+  display: block;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.brand small {
+  color: #9fb0e6;
+  font-size: .72rem;
+  line-height: 1.3;
+  display: block;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg,var(--blue),#8a6df0);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 12px;
+  border-radius: 12px;
+  color: #c5d1f5;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav:hover {
+  background: rgba(255,255,255,.08);
+}
+
+.nav.active {
+  background: #fff;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.ic {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.side-note {
+  margin: auto 6px 0;
+  font-size: .78rem;
+  color: #9fb0e6;
+}
+
+.main {
+  min-width: 0;
+}
+
+/* ================================================
+   TOPBAR (header atas & pencarian)
+   ================================================ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 28px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.search {
+  flex: 1;
+  max-width: 460px;
+}
+
+.search input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  border-radius: 999px;
+  padding: 10px 18px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.user small {
+  display: block;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--lav);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.burger {
+  display: none;
+}
+
+/* ================================================
+   AREA KONTEN & KARTU
+   ================================================ */
+
+main {
+  padding: 28px;
+  max-width: 1320px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 4px 18px rgba(27,42,92,.07);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+button.opt {
+  text-align: left;
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+button.opt:hover {
+  border-color: var(--blue);
+}
+
+.sec-title {
+  font-size: 1.45rem;
+  margin: 6px 0 14px;
+}
+
+.lead {
+  color: var(--muted);
+  margin: -6px 0 16px;
+  max-width: 75ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grp {
+  margin: 22px 0 10px;
+  font-size: 1.05rem;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+/* ================================================
+   BERANDA & TOMBOL
+   ================================================ */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: center;
+  background: linear-gradient(120deg,#fff 40%,var(--lav));
+  padding: 36px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem,3.4vw,2.7rem);
+  letter-spacing: -.02em;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 56ch;
+  margin: 0 0 22px;
+}
+
+.hero-art {
+  width: 100%;
+  max-width: 380px;
+  justify-self: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy);
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--soft);
+}
+
+.btn.small {
+  padding: 8px 14px;
+}
+
+.btn.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #2f5cc4;
+}
+
+.btn.ghost {
+  background: var(--lav);
+  border-color: var(--lav);
+}
+
+.btn.light {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.3);
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.topic {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  text-align: left;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.topic:hover {
+  border-color: var(--blue);
+}
+
+.row-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 18px;
+}
+
+.row-card small {
+  display: block;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.tag {
+  display: inline-block;
+  font-size: .75rem;
+  background: var(--lav);
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+
+details.item {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 4px 18px;
+}
+
+details.item>summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+details.item .body {
+  padding: 0 0 16px;
+}
+
+details.item ol {
+  margin: 0 0 10px;
+  padding-left: 22px;
+}
+
+details.key {
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin: 10px 0;
+}
+
+details.key summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.formula {
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-family: ui-monospace,Consolas,monospace;
+  display: inline-block;
+}
+
+.detail ul {
+  padding-left: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* ================================================
+   SIMULATOR & TEACHING MODE (layout 2 kolom, grafik)
+   ================================================ */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tab {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.tab.on {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.sim {
+  display: grid;
+  grid-template-columns: minmax(300px,380px) 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: .88rem;
+  margin-bottom: 12px;
+  color: var(--navy);
+}
+
+label output {
+  float: right;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+label input:not([type=range]):not([type=checkbox]),
+label select,
+label textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--soft);
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--blue);
+  margin-top: 6px;
+}
+
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10px;
+}
+
+.checks label {
+  font-weight: 500;
+}
+
+.err {
+  background: #fff1e8;
+  color: var(--bad);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  font-size: .88rem;
+}
+
+.chart-box {
+  position: relative;
+  height: 400px;
+}
+
+.chart-box.big {
+  height: 100%;
+}
+
+/* ================================================
+   KOTAK ANGKA (chip) & LANGKAH HITUNG
+   ================================================ */
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 12px;
+}
+
+.chip {
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+}
+
+.chip small {
+  display: block;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.chip b {
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+.chip.bad b {
+  color: var(--bad);
+}
+
+.chip.ok b {
+  color: var(--ok);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  counter-reset: s;
+}
+
+.steps li {
+  counter-increment: s;
+  padding-left: 42px;
+  position: relative;
+}
+
+.steps li::before {
+  content: counter(s);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--lav);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.steps b {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.eq {
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: .78rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.badge.shift {
+  background: #fff0dd;
+  color: #a85a00;
+}
+
+.badge.move {
+  background: #e3ecff;
+  color: #2a4fb0;
+}
+
+#explain p {
+  margin: 0 0 8px;
+  color: #38426b;
+  max-width: 75ch;
+}
+
+.brandlogo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* ================================================
+   DIALOG / POP-UP
+   ================================================ */
+
+dialog {
+  border: 0;
+  border-radius: 20px;
+  padding: 24px;
+  width: min(560px,92vw);
+  max-height: 90vh;
+  box-shadow: 0 20px 60px rgba(27,42,92,.35);
+}
+
+dialog::backdrop {
+  background: rgba(15,26,64,.55);
+}
+
+dialog h3 {
+  margin-bottom: 14px;
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #0f1a40;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fff;
+}
+
+.viewer[hidden] {
+  display: none;
+}
+
+.viewer iframe {
+  flex: 1;
+  border: 0;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.teach {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #0f1a40;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 32px;
+  gap: 14px;
+}
+
+.teach[hidden] {
+  display: none;
+}
+
+.teach-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.teach h2 {
+  color: #fff;
+  font-size: clamp(1.5rem,3vw,2.3rem);
+  margin-top: 6px;
+}
+
+.pill {
+  background: var(--lav);
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 3px 14px;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.teach-text {
+  font-size: clamp(1.05rem,1.8vw,1.4rem);
+  color: #dbe4ff;
+  max-width: 90ch;
+  min-height: 2.6em;
+}
+
+.teach-stage {
+  flex: 1;
+  min-height: 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  color: var(--ink);
+}
+
+.teach-stage.text {
+  display: flex;
+  overflow: auto;
+  padding: 32px;
+}
+
+.teach-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.teach .btn {
+  font-size: 1.05rem;
+  padding: 12px 24px;
+}
+
+/* ================================================
+   TEACHING MODE: langkah siswa & tabel isian
+   ================================================ */
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+  margin: 10px 0;
+}
+
+.tbl th,
+.tbl td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.tbl .hint {
+  color: var(--muted);
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: .82rem;
+}
+
+.stin {
+  width: 90px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 8px;
+  background: var(--soft);
+}
+
+.stin.ok {
+  border-color: var(--ok);
+  background: #e8f7ef;
+}
+
+.stin.bad {
+  border-color: var(--bad);
+  background: #fff1e8;
+}
+
+.stbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.stbar span {
+  font-size: .78rem;
+  border-radius: 999px;
+  padding: 3px 12px;
+  background: var(--soft);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.stbar span.on {
+  background: var(--navy);
+  color: #fff;
+}
+
+.stbar span.done {
+  background: #e8f7ef;
+  color: var(--ok);
+}
+
+.aiq {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  font-weight: 400;
+}
+
+.aiq input {
+  margin-top: 5px;
+  width: auto;
+}
+
+label.chk {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 500;
+}
+
+label.chk input {
+  width: auto;
+  margin: 0;
+}
+
+/* ================================================
+   RESPONSIF: tampilan HP & layar kecil
+   ================================================ */
+
+@media(max-width:1000px) {
+  .sim {
+    grid-template-columns: 1fr;
+  }
+
+.hero {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+}
+
+@media(max-width:860px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+.sidebar {
+    position: fixed;
+    z-index: 20;
+    width: 270px;
+    transform: translateX(-100%);
+    transition: transform .2s;
+  }
+
+.sidebar.open {
+    transform: none;
+  }
+
+.burger {
+    display: block;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+.user div:last-child {
+    display: none;
+  }
+
+main {
+    padding: 16px;
+  }
+
+.topbar {
+    padding: 12px 16px;
+  }
+
+.chart-box {
+    height: 320px;
+  }
+
+.teach {
+    padding: 14px;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  * {
+    transition: none!important;
+    scroll-behavior: auto!important;
+  }
+
+}
+
+#sPh {
+  white-space: pre-line;
+  max-width: 70ch;
+  line-height: 1.5;
+  text-align: left;
+  margin: auto;
+}
+
+
+/* ================================================
+   LAYOUT SATU KOLOM (atas ke bawah) untuk simulasi guru & siswa
+   ================================================ */
+.sim-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;   /* lebar dibatasi supaya grafik tidak melebar */
+  margin: 0 auto;
+}
+.sim-stack > * { min-width: 0; }
+.chart-card { overflow: hidden; }
+.chart-card .chart-box {
+  position: relative;
+  height: 420px;      /* tinggi dikunci: grafik tidak menimpa kotak di bawahnya */
+  width: 100%;
+  overflow: hidden;
+}
+.chart-card canvas { max-width: 100%; }
+@media (max-width: 700px) {
+  .chart-card .chart-box { height: 320px; }
+}
+
+
+/* ================================================
+   LAYAR LOGIN & TOMBOL KELUAR
+   ================================================ */
+.login { display: none; }
+body.locked { overflow: hidden; }
+body.locked .app,
+body.locked .teach,
+body.locked .viewer { display: none !important; }
+body.locked .login {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 20px;
+  overflow-y: auto;
+  background: linear-gradient(160deg, var(--navy) 0%, #24397f 100%);
+}
+body.checking .login-card { visibility: hidden; }
+.login-card {
+  width: min(420px, 100%);
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px 30px 28px;
+  box-shadow: 0 20px 60px rgba(10, 18, 50, .45);
+}
+.login-brand { padding: 0; margin-bottom: 22px; }
+.login-brand b { color: var(--navy); }
+.login-brand small { color: var(--muted); }
+.login-card h1 { margin: 0 0 4px; font-size: 1.6rem; color: var(--navy); }
+.login-card .muted { margin: 0 0 20px; }
+.login-card label input:not([type=checkbox]) { margin-top: 6px; }
+.pw { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+.pw input { flex: 1; margin-top: 0 !important; min-width: 0; }
+.pw-toggle {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--blue);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-weight: 600;
+  font-size: .82rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pw-toggle:hover { background: var(--soft); }
+.login-btn { width: 100%; display: inline-flex; justify-content: center; align-items: center; gap: 10px; margin-top: 4px; }
+.spin {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, .45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: lgspin .7s linear infinite;
+}
+@keyframes lgspin { to { transform: rotate(360deg); } }
+#logout { margin-left: 4px; }
+@media (max-width: 480px) {
+  .login-card { padding: 26px 20px 22px; }
+}
